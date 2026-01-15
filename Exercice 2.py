@@ -11,10 +11,18 @@ def calculateur () :
         lineEditD.setText("Nombre non valid")
 
 def sauvegarder () :
-    pass
+    res = lineEditD.text()
+    fichier = open ("resultats.txt", "w")
+    fichier.write(res)
+    fichier.close()
 
 def charger () :
-    pass
+    fichier = open ("resultats.txt", "r")
+    contenu = fichier.read()
+    fichier.close()
+    lineEditD.setText(contenu)
+    nombre = float (contenu)/2
+    lineEditN.setText(str(nombre))
 
 # Interface Graphique
 app = QApplication([])
