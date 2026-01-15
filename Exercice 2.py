@@ -4,7 +4,7 @@ from PyQt6.QtWidgets import QApplication, QWidget, QGridLayout, QLabel, QLineEdi
 # Fonctions
 def calculateur () :
     try :
-        n = float(lineEditN.text())
+        n = int(lineEditN.text())
         result = n * 2
         lineEditD.setText(str(result))
     except ValueError :
@@ -12,17 +12,25 @@ def calculateur () :
 
 def sauvegarder () :
     res = lineEditD.text()
-    fichier = open ("resultats.txt", "w")
-    fichier.write(res)
-    fichier.close()
+    if res != "":
+        fichier = open ("resultats.txt", "w")
+        fichier.write(res)
+        fichier.close()
 
 def charger () :
-    fichier = open ("resultats.txt", "r")
-    contenu = fichier.read()
-    fichier.close()
-    lineEditD.setText(contenu)
-    nombre = float (contenu)/2
-    lineEditN.setText(str(nombre))
+    try :
+        fichier = open ("resultats.txt", "r")
+        contenu = fichier.read()
+        fichier.close()
+        lineEditD.setText(contenu)
+        nombre = int(int(contenu)/2)
+        lineEditN.setText(str(nombre))
+    except FileExistsError :
+        lineEditN.setText("Erreur : Fichier introuvable")
+        lineEditD.setText("Erreur : Fichier introuvable")
+    except ValueError :
+        lineEditN.setText("Erreur : Contenu introuvable")
+        lineEditD.setText("Erreur : Contenu introuvable")
 
 # Interface Graphique
 app = QApplication([])
