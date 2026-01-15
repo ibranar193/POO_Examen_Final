@@ -1,7 +1,8 @@
+# Import le fichier Outils.py
 from Outils import Outils
 
+# main fonction
 entier = Outils()
-
 entier.saisir()
 print("-------------------------------------------------------------")
 print(entier)
