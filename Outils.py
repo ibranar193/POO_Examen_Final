@@ -1,8 +1,9 @@
-#
+# Declaration de class.
 class Outils :
     def __init__(self) :
         self.entiers = []
 
+# Les fonctions.
     def saisir (self) :
         print("Veuiller saisir 10 nombre entiers : ")
         for i in range(10) :
@@ -36,5 +37,6 @@ class Outils :
     def moyenne(self) :
         return self.somme()/10
 
+# fonction d'affichage.
     def __str__(self):
         return f"{self.entiers}"
