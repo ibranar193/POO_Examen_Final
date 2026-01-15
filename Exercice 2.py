@@ -9,10 +9,8 @@ fen.setGeometry(100, 100, 400, 200)
 text1 = QLabel("Entrer la valeur de N :", fen)
 text1.setGeometry(25, 25, 150, 20)
 
-
 lineEditN = QLineEdit(fen)
 lineEditN.setGeometry(150, 25, 200, 20)
-
 
 fen.show()
 app.exec()
