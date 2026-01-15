@@ -4,7 +4,7 @@ class Outils :
         self.entiers = []
         self.array = np.array(self.entiers)
     def saisir (self) :
-        print("Veuiller saisir 10 nombre entiers :")
+        print("Veuiller saisir 10 nombre entiers : ")
         for i in range(10) :
             entier = int (input(f"Nombre {i+1} : "))
             self.entiers.append(entier)
@@ -14,3 +14,9 @@ class Outils :
 
     def max(self) :
         return self.array.max()
+
+    def somme(self) :
+        return self.array.sum()
+
+    def moyenne(self) :
+        return self.array.mean()
