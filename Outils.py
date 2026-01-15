@@ -1,15 +1,17 @@
 #
-import numpy as np
 class Outils :
     def __init__(self) :
         self.entiers = []
-        self.array = np.array(self.entiers)
+
     def saisir (self) :
         print("Veuiller saisir 10 nombre entiers : ")
         for i in range(10) :
-            entier = int (input(f"Nombre {i+1} : "))
-            self.entiers.append(entier)
-        self.array = np.array(self.entiers)
+            while True :
+                try :
+                    entier = int (input(f"Nombre {i+1} : "))
+                    self.entiers.append(entier)
+                    break
+                except ValueError : print("Erreur : Veuiller saisir un entier valide.")
 
     def min(self) :
         minimum = self.entiers[0]
@@ -26,10 +28,13 @@ class Outils :
         return maximum
 
     def somme(self) :
-        return self.array.sum()
+        somme = 0
+        for i in self.entiers:
+            somme += i
+        return somme
 
     def moyenne(self) :
-        return self.array.mean()
+        return self.somme()/10
 
     def __str__(self):
         return f"{self.entiers}"
