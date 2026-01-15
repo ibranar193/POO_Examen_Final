@@ -12,10 +12,9 @@ def calculateur () :
 
 def sauvegarder () :
     res = lineEditD.text()
-    if res != "":
-        fichier = open ("resultats.txt", "w")
-        fichier.write(res)
-        fichier.close()
+    fichier = open ("resultats.txt", "w")
+    fichier.write(res)
+    fichier.close()
 
 def charger () :
     try :
@@ -25,12 +24,10 @@ def charger () :
         lineEditD.setText(contenu)
         nombre = int(int(contenu)/2)
         lineEditN.setText(str(nombre))
-    except FileExistsError :
+    except FileNotFoundError :
         lineEditN.setText("Erreur : Fichier introuvable")
         lineEditD.setText("Erreur : Fichier introuvable")
-    except ValueError :
-        lineEditN.setText("Erreur : Contenu introuvable")
-        lineEditD.setText("Erreur : Contenu introuvable")
+
 
 # Interface Graphique
 app = QApplication([])
